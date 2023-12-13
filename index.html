@@ -1,0 +1,1246 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
+      crossorigin="anonymous"
+    />
+    <title>Installing Player</title>
+
+    <style>
+      :root {
+        --darkblue: #172b4d;
+        --lightGray: #f4f5f7;
+        --paleGray: #ebecf0;
+        --green: #36b37e;
+        --gray: #ecedf0;
+        --orange: #ff5630;
+      }
+
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        color: var(--darkblue);
+        background-color: #fff;
+        font-size: 1rem;
+      }
+
+      p {
+        margin: 1rem 0;
+      }
+
+      button {
+        background: transparent;
+        border: none;
+      }
+
+      .main {
+        padding: 50px 0;
+      }
+
+      .line {
+        border-top: 2px solid var(--gray);
+        height: 10px;
+        margin-block: 20px;
+      }
+
+      .note {
+        font-style: italic;
+        color: var(--orange);
+        font-size: 1rem;
+        padding-block: 10px;
+      }
+
+      .title {
+        font-size: 1.75rem;
+        color: var(--darkblue);
+        font-weight: 400;
+      }
+
+      .createdBy-img {
+        padding-block: 15px;
+        padding-right: 10px;
+      }
+
+      .createdBy-img img {
+        width: 35px;
+        border-radius: 100px;
+      }
+
+      .second-img {
+        margin-left: -10px;
+      }
+
+      .createdBy-text {
+        font-size: 0.75rem;
+        color: #6b778c;
+        font-weight: 400;
+      }
+
+      .step--number-all {
+        font-size: 1.13rem;
+        color: var(--darkblue);
+        line-height: 10px;
+        font-weight: 600;
+      }
+
+      /* Code Design */
+      .code {
+        position: relative;
+        background: var(--lightGray);
+        display: flex;
+        align-items: center;
+        height: 40px;
+      }
+
+      .nested-code-con {
+        position: relative;
+      }
+
+      .nested-code {
+        background: var(--lightGray);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 90px;
+      }
+
+      .nested-code-con:hover .clipboard {
+        display: block;
+      }
+
+      .code:hover .clipboard {
+        display: block;
+      }
+
+      .clipboard:hover {
+        background: rgb(213, 213, 213);
+      }
+
+      .clipboard {
+        position: absolute;
+        right: 5px;
+        top: 5px;
+        display: none;
+        border: 2px solid #fff;
+        border-radius: 3px;
+        padding: 2px;
+        transition: 0.4s ease-in;
+      }
+
+      .clipboard img {
+        width: 20px;
+      }
+
+      .code--all {
+        color: var(--darkblue);
+        font-size: 0.8rem;
+        line-height: 24px;
+        display: flex;
+        align-items: center;
+        height: 100%;
+      }
+
+      .code--all span {
+        display: flex;
+        align-items: center;
+        padding: 0 10px;
+        background: var(--paleGray);
+        height: 100%;
+      }
+
+      .code--all p {
+        margin: 0;
+        padding-inline: 10px;
+      }
+
+      /* Images */
+      .img-all {
+        max-width: 370px;
+      }
+
+      /* Checklist */
+      .checklist--title {
+        font-size: 1rem;
+        font-weight: 700;
+        padding-block: 10px;
+      }
+
+      .nested--checklist-inner {
+        padding-left: 20px;
+      }
+
+      .checklist--all {
+        margin-block: 10px;
+      }
+
+      code {
+        color: var(--darkblue);
+        font-size: 0.8rem;
+      }
+
+      .checklist--code {
+        background: var(--gray);
+        padding: 3px 5px;
+      }
+
+      .highlight {
+        color: var(--green);
+        font-weight: 700;
+      }
+
+      .title-lh {
+        line-height: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main container">
+      <div class="row mb-4">
+        <div class="col-12">
+          <h1 class="title">Installing Player (Read Thoroughly)</h1>
+
+          <div class="createdBy d-flex align-items-center">
+            <div class="createdBy-img">
+              <img src="./assets/dp1.png" alt="DP" />
+              <img
+                class="second-img bg-white"
+                src="./assets/logo.png"
+                alt="Ncompass Logo"
+              />
+            </div>
+
+            <div class="createdBy-text">
+              <span>Created by Vhin Gabuat</span>
+              <p class="m-0">Last upadated April 14, 2023 by N-COMPASS TV</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="row mb-4">
+          <div class="step--number col-12">
+            <span class="step--number-all">Step 1</span>
+            <p>
+              Install a fresh Raspbian OS on your SD card, make sure to use the
+              Legacy version called Buster. Connect with Admin for more info.
+            </p>
+          </div>
+        </div>
+
+        <div class="row mb-4">
+          <div class="step--number col-12">
+            <span class="step--number-all">Step 2 - Install XScreensaver</span>
+            <p>
+              Install xscreensaver to disable raspberry pi from sleeping or
+              showing a screensaver. Make sure you’re connected to the internet.
+            </p>
+
+            <div class="code">
+              <code class="code--all">
+                <span>1</span>
+                <p class="copy-code" id="code-snippet-1">
+                  sudo apt install xscreensaver -y
+                </p>
+              </code>
+
+              <div class="clipboard">
+                <button
+                  class="copy-button"
+                  data-copy-target="#code-snippet-1"
+                  data-bs-toggle="tooltip"
+                  data-bs-placement="top"
+                  title="copy as text"
+                >
+                  <img src="./assets/copy.png" alt="Copy" />
+                </button>
+              </div>
+            </div>
+
+            <p>
+              Once installed, you should now see Screensaver menu on Start >
+              Preferences
+            </p>
+            <img
+              class="img-all"
+              src="./assets/xscreensaver1.png"
+              alt="Screenshot"
+            />
+            <p>
+              Open the Screensaver app, if you see a pop up that says something
+              about XScreenSaver daemon not running and suggesting to launch it,
+              click OK.
+            </p>
+            <img
+              class="img-all"
+              src="./assets/xscreensaver2.png"
+              alt="Screenshot"
+            />
+            <p>
+              Select <strong>Disable Screen Saver</strong> via the
+              <strong>Mode</strong> select field.
+            </p>
+            <img
+              class="img-all"
+              src="./assets/xscreensaver3.png"
+              alt="Screenshot"
+            />
+            <p>Exit the app. Changes should take effect on the next reboot.</p>
+          </div>
+        </div>
+
+        <div class="row mb-4">
+          <div class="step--number col-12">
+            <span class="step--number-all">Step 3 - Installing Anydesk</span>
+            <p>
+              We’re using a specific version of Anydesk which is 6.1.1. For this
+              to install properly we need to install something first.
+            </p>
+            <p>Open up terminal and run the following command</p>
+
+            <div class="nested-code-con">
+              <code class="nested-code copy-code" id="code-snippet-2">
+                <div class="code--all">
+                  <span>1</span>
+                  <p>sudo apt install libminizip1</p>
+                </div>
+                <div class="code--all">
+                  <span>2</span>
+                  <p>
+                    wget
+                    https://download.anydesk.com/rpi/anydesk_6.1.1-1_armhf.deb
+                  </p>
+                </div>
+                <div class="code--all">
+                  <span>3</span>
+                  <p class="copy-code">
+                    sudo dpkg -i anydesk_6.1.1-1_armhf.deb
+                  </p>
+                </div>
+              </code>
+
+              <div class="clipboard">
+                <button
+                  class="copy-button"
+                  data-copy-target="#code-snippet-2"
+                  data-bs-toggle="tooltip"
+                  data-bs-placement="top"
+                  title="copy as text"
+                  data-copy-target="#code-snippet-2"
+                >
+                  <img src="./assets/copy.png" alt="Copy" />
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row mb-4">
+          <div class="step--number col-12">
+            <span class="step--number-all">Step 4 - Run Installer Script</span>
+            <p>To download the script, open terminal and run:</p>
+
+            <div class="code">
+              <code class="code--all">
+                <span>1</span>
+                <p class="copy-code" id="code-snippet-3">
+                  curl -O
+                  https://ncompasstv-prod-player-apps.s3.amazonaws.com/nctv-installer/04142023/nctv-installer.zip
+                </p>
+              </code>
+
+              <div class="clipboard">
+                <button
+                  class="copy-button"
+                  data-copy-target="#code-snippet-3"
+                  data-bs-toggle="tooltip"
+                  data-bs-placement="top"
+                  title="copy as text"
+                  data-copy-target="#code-snippet-3"
+                >
+                  <img src="./assets/copy.png" alt="Copy" />
+                </button>
+              </div>
+            </div>
+
+            <h4 class="note">
+              Note: You might need to confirm with your admin if the url above
+              is the latest one.
+            </h4>
+
+            <p>
+              A zip file should be download in the home/pi folder named
+              nctv-installer.zip. You can confirm via Anydesk by using its file
+              manager tool.
+            </p>
+            <p>On the terminal, unzip the downloaded zip file via</p>
+
+            <div class="code">
+              <code class="code--all">
+                <span>1</span>
+                <p class="copy-code" id="code-snippet-4">
+                  unzip nctv-installer.zip
+                </p>
+              </code>
+
+              <div class="clipboard">
+                <button
+                  class="copy-button"
+                  data-copy-target="#code-snippet-4"
+                  data-bs-toggle="tooltip"
+                  data-bs-placement="top"
+                  title="copy as text"
+                  data-copy-target="#code-snippet-4"
+                >
+                  <img src="./assets/copy.png" alt="Copy" />
+                </button>
+              </div>
+            </div>
+
+            <p>Then run the installer script via</p>
+
+            <div class="code">
+              <code class="code--all">
+                <span>1</span>
+                <p class="copy-code" id="code-snippet-5">
+                  sh nctv-installer/installer.sh
+                </p>
+              </code>
+
+              <div class="clipboard">
+                <button
+                  class="copy-button"
+                  data-copy-target="#code-snippet-5"
+                  data-bs-toggle="tooltip"
+                  data-bs-placement="top"
+                  title="copy as text"
+                  data-copy-target="#code-snippet-5"
+                >
+                  <img src="./assets/copy.png" alt="Copy" />
+                </button>
+              </div>
+            </div>
+
+            <div class="checklist">
+              <p>
+                The installer script will install the following required
+                programs along with the player-server and player-ui app. After a
+                reboot open the terminal and verify if the following programs
+                are installed by running the highlighted commands below, you can
+                use this as a checklist for tracking:
+              </p>
+
+              <div class="form-check checklist--all">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value=""
+                  id="flexCheckDefault"
+                />
+                <label class="form-check-label" for="flexCheckDefault">
+                  <strong>NGINX - </strong>
+                  <code class="checklist--code">nginx -v</code>
+                </label>
+              </div>
+
+              <div class="form-check checklist--all">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value=""
+                  id="flexCheckDefault"
+                />
+                <label class="form-check-label" for="flexCheckDefault">
+                  <strong>NodeJs - </strong>
+                  <code class="checklist--code">node -v</code>
+                </label>
+              </div>
+
+              <div class="form-check checklist--all">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value=""
+                  id="flexCheckDefault"
+                />
+                <label class="form-check-label" for="flexCheckDefault">
+                  <strong>NPM - </strong>
+                  <code class="checklist--code">npm -v</code>
+                </label>
+              </div>
+
+              <div class="form-check checklist--all">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value=""
+                  id="flexCheckDefault"
+                />
+                <label class="form-check-label" for="flexCheckDefault">
+                  <strong>N - Node Version Manager - </strong>
+                  <code class="checklist--code">sudo n 12</code>
+                </label>
+              </div>
+
+              <div class="form-check checklist--all">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value=""
+                  id="flexCheckDefault"
+                />
+                <label class="form-check-label" for="flexCheckDefault">
+                  <strong>PM2 - </strong>
+                  <code class="checklist--code">pm2 status</code>
+                </label>
+              </div>
+
+              <div class="form-check checklist--all">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value=""
+                  id="flexCheckDefault"
+                />
+                <label class="form-check-label" for="flexCheckDefault">
+                  <strong>Chromium Brow mb-4ser - </strong>
+                  <code class="checklist--code"
+                    >chromium-brow mb-4ser --version</code
+                  >
+                </label>
+              </div>
+
+              <div class="form-check checklist--all">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value=""
+                  id="flexCheckDefault"
+                />
+                <label class="form-check-label" for="flexCheckDefault">
+                  <strong> GNome Terminal - </strong>
+                  <code class="checklist--code">gnome-terminal --version</code>
+                </label>
+              </div>
+
+              <div class="form-check checklist--all">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value=""
+                  id="flexCheckDefault"
+                />
+                <label class="form-check-label" for="flexCheckDefault">
+                  <strong>SCROT - </strong>
+                  <code class="checklist--code">scrot --version</code>
+                </label>
+              </div>
+
+              <div class="form-check checklist--all">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value=""
+                  id="flexCheckDefault"
+                />
+                <label class="form-check-label" for="flexCheckDefault">
+                  <strong>Unclutter - </strong>
+                  <span>
+                    See if the mouse pointer hides after 10 seconds of
+                    inactivity
+                  </span>
+                </label>
+              </div>
+
+              <div class="form-check checklist--all">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value=""
+                  id="flexCheckDefault"
+                />
+                <label class="form-check-label" for="flexCheckDefault">
+                  <strong>CEC Utils - </strong>
+                  <code class="checklist--code"
+                    >echo 'scan' | cec-client -s -d 1</code
+                  >
+                </label>
+              </div>
+
+              <div class="nested--checklist">
+                <div class="form-check checklist--all">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    value=""
+                    id="flexCheckDefault"
+                  />
+                  <label class="form-check-label" for="flexCheckDefault">
+                    <strong>Player Server Latest Version</strong>
+                  </label>
+                </div>
+
+                <div class="nested--checklist-inner">
+                  <div class="form-check checklist--all">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      value=""
+                      id="flexCheckDefault"
+                    />
+                    <label class="form-check-label" for="flexCheckDefault">
+                      Open Filemanager Go to
+                      <span class="highlight">n-compasstv</span> folder
+                    </label>
+                  </div>
+                  <div class="form-check checklist--all">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      value=""
+                      id="flexCheckDefault"
+                    />
+                    <label class="form-check-label" for="flexCheckDefault">
+                      <span class="highlight">player-server folder</span> exists
+                    </label>
+                  </div>
+                  <div class="form-check checklist--all">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      value=""
+                      id="flexCheckDefault"
+                    />
+                    <label class="form-check-label" for="flexCheckDefault">
+                      <span class="highlight">player-server folder</span> exists
+                    </label>
+                  </div>
+                  <div class="form-check checklist--all">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      value=""
+                      id="flexCheckDefault"
+                    />
+                    <label class="form-check-label" for="flexCheckDefault">
+                      go to<span class="highlight">player-server folder</span>
+                    </label>
+                  </div>
+                  <div class="form-check checklist--all">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      value=""
+                      id="flexCheckDefault"
+                    />
+                    <label class="form-check-label" for="flexCheckDefault">
+                      <span class="highlight">node-module folder</span> exists
+                    </label>
+                  </div>
+                  <div class="form-check checklist--all">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      value=""
+                      id="flexCheckDefault"
+                    />
+                    <label class="form-check-label" for="flexCheckDefault">
+                      <span class="highlight">src folder</span> exists
+                    </label>
+                  </div>
+                  <div class="form-check checklist--all">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      value=""
+                      id="flexCheckDefault"
+                    />
+                    <label class="form-check-label" for="flexCheckDefault">
+                      <span class="highlight">nct-vistar-101.tgz</span> exists
+                    </label>
+                  </div>
+                  <div class="form-check checklist--all">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      value=""
+                      id="flexCheckDefault"
+                    />
+                    <label class="form-check-label" for="flexCheckDefault">
+                      <span class="highlight">package.json</span> exists
+                    </label>
+                  </div>
+                  <div class="form-check checklist--all">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      value=""
+                      id="flexCheckDefault"
+                    />
+                    <label class="form-check-label" for="flexCheckDefault">
+                      <span class="highlight">CTRL + H → .env file</span> exists
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="nested--checklist">
+                <div class="form-check checklist--all">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    value=""
+                    id="flexCheckDefault"
+                  />
+                  <label class="form-check-label" for="flexCheckDefault">
+                    <strong>Player Server Latest Version - </strong>
+                  </label>
+                </div>
+
+                <div class="nested--checklist-inner">
+                  <div class="form-check checklist--all">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      value=""
+                      id="flexCheckDefault"
+                    />
+                    <label class="form-check-label" for="flexCheckDefault">
+                      On the terminal, enter
+                      <code class="checklist--code">cd /var/www/html/ui</code>
+                    </label>
+                  </div>
+
+                  <div class="form-check checklist--all">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      value=""
+                      id="flexCheckDefault"
+                    />
+                    <label class="form-check-label" for="flexCheckDefault">
+                      <span
+                        >Then enter <code>ls</code> , this should show a list of
+                        files within the <strong>ui folder</strong></span
+                      >
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row mb-4">
+          <div class="step--number col-12">
+            <span class="step--number-all">Step 5 - PM2 Starter Script</span>
+            <p>
+              To get the player run on startup we need to run the next script
+              pm2-starter.sh included in the nctv-installer folder, go ahead and
+              open up terminal via
+              <code class="checklist--code">CTRL + ALT + T </code>and enter the
+              command below
+            </p>
+
+            <div class="code">
+              <code class="code--all">
+                <span>1</span>
+                <p class="copy-code" id="code-snippet-6">
+                  sh nctv-installer/pm2-starter.sh
+                </p>
+              </code>
+
+              <div class="clipboard">
+                <button
+                  class="copy-button"
+                  data-copy-target="#code-snippet-6"
+                  data-bs-toggle="tooltip"
+                  data-bs-placement="top"
+                  title="copy as text"
+                  data-copy-target="#code-snippet-6"
+                >
+                  <img src="./assets/copy.png" alt="Copy" />
+                </button>
+              </div>
+            </div>
+
+            <p>
+              This will start the player and will ask for a license key, but
+              before we do that, let’s do another reboot to make sure that the
+              pm2-starter script has been configured properly.
+            </p>
+
+            <div class="code">
+              <code class="code--all">
+                <span>1</span>
+                <p class="copy-code" id="code-snippet-7">sudo reboot;</p>
+              </code>
+
+              <div class="clipboard">
+                <button
+                  class="copy-button"
+                  data-copy-target="#code-snippet-7"
+                  data-bs-toggle="tooltip"
+                  data-bs-placement="top"
+                  title="copy as text"
+                  data-copy-target="#code-snippet-7"
+                >
+                  <img src="./assets/copy.png" alt="Copy" />
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row mb-4">
+          <div class="step--number col-12">
+            <span class="step--number-all">Step 6 - Watchdog Script</span>
+            <p>
+              If the player ran on start up then we were able to setup startup
+              rules successfully! Now I know you’re itching to get that license
+              key in there but hold on to that for now, we have one last script
+              to run, this is also included in the nctv-installer folder. This
+              script watchdog-starter.sh will setup watchdog service which is
+              responsible for emergency rebooting the Pi when it hangs or get
+              stuck all of a sudden.
+            </p>
+
+            <p>
+              Go ahead and open up terminal
+              <code class="checklist--code">CTRL + ALT + T </code>and run the
+              command below, note that this needs to be ran with
+              <code class="checklist--code">sudo</code>
+            </p>
+
+            <div class="code">
+              <code class="code--all">
+                <span>1</span>
+                <p class="copy-code" id="code-snippet-8">
+                  sudo sh nctv-installer/watchdog-starter.sh
+                </p>
+              </code>
+
+              <div class="clipboard">
+                <button
+                  class="copy-button"
+                  data-copy-target="#code-snippet-8"
+                  data-bs-toggle="tooltip"
+                  data-bs-placement="top"
+                  title="copy as text"
+                  data-copy-target="#code-snippet-8"
+                >
+                  <img src="./assets/copy.png" alt="Copy" />
+                </button>
+              </div>
+            </div>
+
+            <p>
+              Once all is done, terminal will tell you to run the crash
+              simulator command →
+              <code class="checklist--code"
+                >Done, now run the crash simulator command</code
+              >, this is to see if watchdog has been configured properly. On the
+              terminal run the command below.
+            </p>
+
+            <div class="code">
+              <code class="code--all">
+                <span>1</span>
+                <p class="copy-code" id="code-snippet-9">
+                  sudo bash -c ':(){ :|:& };:'
+                </p>
+              </code>
+              <div class="clipboard">
+                <button
+                  class="copy-button"
+                  data-copy-target="#code-snippet-9"
+                  data-bs-toggle="tooltip"
+                  data-bs-placement="top"
+                  title="copy as text"
+                  data-copy-target="#code-snippet-9"
+                >
+                  <img src="./assets/copy.png" alt="Copy" />
+                </button>
+              </div>
+            </div>
+
+            <p>
+              Player will hang and reboot after a few seconds. Then it should
+              normally start the player. Congratulations! You have a fresh
+              installed player, you can now proceed with entering your license
+              key.
+            </p>
+
+            <div class="nested--checklist">
+              <h2 class="checklist--title">Checklist</h2>
+
+              <div class="form-check checklist--all">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value=""
+                  id="flexCheckDefault"
+                />
+                <label class="form-check-label" for="flexCheckDefault">
+                  New Wallpaper
+                </label>
+              </div>
+              <div class="form-check checklist--all">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value=""
+                  id="flexCheckDefault"
+                />
+                <label class="form-check-label" for="flexCheckDefault">
+                  Player should run on startup
+                </label>
+              </div>
+              <div class="form-check checklist--all">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value=""
+                  id="flexCheckDefault"
+                />
+                <label class="form-check-label" for="flexCheckDefault">
+                  Screensaver Disabled
+                </label>
+              </div>
+              <div class="form-check checklist--all">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value=""
+                  id="flexCheckDefault"
+                />
+                <label class="form-check-label" for="flexCheckDefault">
+                  Mouse Pointer hides after a few seconds
+                </label>
+              </div>
+              <div class="form-check checklist--all">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value=""
+                  id="flexCheckDefault"
+                />
+                <label class="form-check-label" for="flexCheckDefault">
+                  Keyboard shortcuts should work.
+                </label>
+              </div>
+
+              <div class="nested--checklist-inner">
+                <div class="form-check checklist--all">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    value=""
+                    id="flexCheckDefault"
+                  />
+                  <label class="form-check-label" for="flexCheckDefault">
+                    <code class="checklist--code">CTRL + SHIFT + P</code>
+                  </label>
+                </div>
+                <div class="form-check checklist--all">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    value=""
+                    id="flexCheckDefault"
+                  />
+                  <label class="form-check-label" for="flexCheckDefault">
+                    <code class="checklist--code">CTRL + SHIFT + K</code>
+                  </label>
+                </div>
+                <div class="form-check checklist--all">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    value=""
+                    id="flexCheckDefault"
+                  />
+                  <label class="form-check-label" for="flexCheckDefault">
+                    <code class="checklist--code">CTRL + SHIFT + R</code>
+                  </label>
+                </div>
+              </div>
+
+              <div class="form-check checklist--all">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value=""
+                  id="flexCheckDefault"
+                />
+                <label class="form-check-label" for="flexCheckDefault">
+                  User should be able to enter a license key
+                </label>
+              </div>
+
+              <div class="nested--checklist-inner">
+                <div class="form-check checklist--all">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    value=""
+                    id="flexCheckDefault"
+                  />
+                  <label class="form-check-label" for="flexCheckDefault">
+                    Screenshot
+                  </label>
+                </div>
+                <div class="form-check checklist--all">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    value=""
+                    id="flexCheckDefault"
+                  />
+                  <label class="form-check-label" for="flexCheckDefault">
+                    Reboot Player
+                  </label>
+                </div>
+                <div class="form-check checklist--all">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    value=""
+                    id="flexCheckDefault"
+                  />
+                  <label class="form-check-label" for="flexCheckDefault">
+                    Reboot Pi
+                  </label>
+                </div>
+                <div class="form-check checklist--all">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    value=""
+                    id="flexCheckDefault"
+                  />
+                  <label class="form-check-label" for="flexCheckDefault">
+                    Content Update
+                  </label>
+                </div>
+                <div class="form-check checklist--all">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    value=""
+                    id="flexCheckDefault"
+                  />
+                  <label class="form-check-label" for="flexCheckDefault">
+                    Restart Anydesk
+                  </label>
+                </div>
+                <div class="form-check checklist--all">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    value=""
+                    id="flexCheckDefault"
+                  />
+                  <label class="form-check-label" for="flexCheckDefault">
+                    Reset Anydesk ID
+                  </label>
+                </div>
+                <div class="form-check checklist--all">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    value=""
+                    id="flexCheckDefault"
+                  />
+                  <label class="form-check-label" for="flexCheckDefault">
+                    Speedtest
+                  </label>
+                </div>
+                <div class="form-check checklist--all">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    value=""
+                    id="flexCheckDefault"
+                  />
+                  <label class="form-check-label" for="flexCheckDefault">
+                    CEC Controls
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="line"></div>
+
+      <div class="row mb-4">
+        <div class="col-12">
+          <h1 class="title">Cloning a complete Pi/Player (Optional)</h1>
+          <p>
+            Before cloning a complete running image, do the following first:
+          </p>
+        </div>
+
+        <div class="step--number col-12">
+          <span class="step--number-all title-lh"
+            >Stop the player-chromium
+          </span>
+
+          <div class="code">
+            <code class="code--all">
+              <span>1</span>
+              <p class="copy-code" id="code-snippet-10">
+                pm2 stop player-chromium
+              </p>
+            </code>
+
+            <div class="clipboard">
+              <button
+                class="copy-button"
+                data-copy-target="#code-snippet-10"
+                data-bs-toggle="tooltip"
+                data-bs-placement="top"
+                title="copy as text"
+                data-copy-target="#code-snippet-10"
+              >
+                <img src="./assets/copy.png" alt="Copy" />
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="step--number col-12">
+          <span class="step--number-all title-lh"
+            >Reset the player’s database</span
+          >
+
+          <div class="code">
+            <code class="code--all">
+              <span>1</span>
+              <p class="copy-code" id="code-snippet-11">
+                curl http://localhost:3215/api/content/reset
+              </p>
+            </code>
+
+            <div class="clipboard">
+              <button
+                class="copy-button"
+                data-copy-target="#code-snippet-11"
+                data-bs-toggle="tooltip"
+                data-bs-placement="top"
+                title="copy as text"
+                data-copy-target="#code-snippet-11"
+              >
+                <img src="./assets/copy.png" alt="Copy" />
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="step--number col-12">
+          <span class="step--number-all title-lh">Stop Anydesk Service</span>
+
+          <div class="code">
+            <code class="code--all">
+              <span>1</span>
+              <p class="copy-code" id="code-snippet-12">
+                sudo systemctl stop anydesk
+              </p>
+            </code>
+
+            <div class="clipboard">
+              <button
+                class="copy-button"
+                data-copy-target="#code-snippet-12"
+                data-bs-toggle="tooltip"
+                data-bs-placement="top"
+                title="copy as text"
+                data-copy-target="#code-snippet-12"
+              >
+                <img src="./assets/copy.png" alt="Copy" />
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="step--number col-12">
+          <span class="step--number-all title-lh">Reset the Anydesk ID</span>
+
+          <div class="code">
+            <code class="code--all">
+              <span>1</span>
+              <p class="copy-code" id="code-snippet-13">
+                sudo rm /etc/anydesk/service.conf
+              </p>
+            </code>
+
+            <div class="clipboard">
+              <button
+                class="copy-button"
+                data-copy-target="#code-snippet-13"
+                data-bs-toggle="tooltip"
+                data-bs-placement="top"
+                title="copy as text"
+                data-copy-target="#code-snippet-13"
+              >
+                <img src="./assets/copy.png" alt="Copy" />
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <p class="my-5">
+          You can now turn off the player via sudo shutdown command and create a
+          clone out of it.
+        </p>
+      </div>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+      crossorigin="anonymous"
+    ></script>
+
+    <script>
+      const copyButtons = document.querySelectorAll(".copy-button");
+
+      copyButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          const targetSelector = button.dataset.copyTarget;
+          const target = document.querySelector(targetSelector);
+          const text = target.textContent.trim();
+          navigator.clipboard
+            .writeText(text)
+            .then(() => {
+              console.log("Text copied to clipboard");
+              button.setAttribute("data-bs-original-title", "Copied");
+              button.setAttribute("title", "Copied");
+              const tooltip = bootstrap.Tooltip.getInstance(button);
+              tooltip.show();
+            })
+            .catch((err) => console.error("Error copying text: ", err));
+        });
+      });
+
+      var tooltipTriggerList = [].slice.call(
+        document.querySelectorAll('[data-bs-toggle="tooltip"]')
+      );
+      var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+        return new bootstrap.Tooltip(tooltipTriggerEl);
+      });
+    </script>
+  </body>
+</html>
